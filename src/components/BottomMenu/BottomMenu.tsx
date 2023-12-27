@@ -50,10 +50,7 @@ const BottomMenu = () => {
               href={button.href}
               className="flex flex-col justify-center items-center gap-2"
             >
-              <button.Icon
-                size={26}
-                color={`${pathname[1] === button.href && "#ff8800"}`}
-              />
+              <button.Icon size={26} />
               <span
                 className={`text-xs ${
                   pathname[1] === button.href
