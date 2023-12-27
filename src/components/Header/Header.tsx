@@ -5,7 +5,7 @@ import AvatarIcon from "./AvatarIcon";
 const Header = () => {
   return (
     <header className="w-full flex bg-white justify-center items-center p-2 fixed top-0 left-0">
-      <div className="flex w-full justify-center items-center gap-4">
+      <div className="flex w-full justify-center items-center gap-2">
         <AvatarIcon />
         <Input className="w-[240px] rounded-full bg-gray-100 border-none" />
         <ScanLine size={26} />

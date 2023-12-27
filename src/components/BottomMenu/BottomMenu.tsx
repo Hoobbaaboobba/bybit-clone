@@ -1,3 +1,5 @@
+"use client";
+
 import {
   CandlestickChart,
   HomeIcon,
@@ -6,12 +8,13 @@ import {
   Wallet,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const buttons = [
   {
     Icon: HomeIcon,
     title: "Главная",
-    href: "/",
+    href: "/home",
   },
   {
     Icon: CandlestickChart,
@@ -21,7 +24,7 @@ const buttons = [
   {
     Icon: ClipboardListIcon,
     title: "Деривативы",
-    href: "/derivatives",
+    href: "/",
   },
   {
     Icon: Replace,
@@ -31,11 +34,13 @@ const buttons = [
   {
     Icon: Wallet,
     title: "Активы",
-    href: "wallet",
+    href: "/wallet",
   },
 ];
 
 const BottomMenu = () => {
+  const pathname = usePathname().split("/");
+
   return (
     <div className="flex w-full justify-center items-center py-2 px-4 fixed bottom-0 left-0 border-t bg-white z-[100000] impor border-black/10">
       <ul className="w-full flex justify-between items-center">
@@ -45,8 +50,19 @@ const BottomMenu = () => {
               href={button.href}
               className="flex flex-col justify-center items-center gap-2"
             >
-              <button.Icon size={26} />
-              <span className="text-xs text-zinc-500">{button.title}</span>
+              <button.Icon
+                size={26}
+                color={`${pathname[1] === button.href && "#ff8800"}`}
+              />
+              <span
+                className={`text-xs ${
+                  pathname[1] === button.href
+                    ? "text-orange-400"
+                    : "text-zinc-500"
+                }`}
+              >
+                {button.title}
+              </span>
             </Link>
           </li>
         ))}

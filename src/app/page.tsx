@@ -1,9 +1,9 @@
-import WalletInfo from "@/components/Wallet/WalletInfo";
+import TradingViewWidget from "@/components/Derivatives/TradingViewWidget";
 
 export default function Home() {
   return (
-    <main>
-      <WalletInfo />
+    <main className="h-full overflow-y-hidden">
+      <TradingViewWidget />
     </main>
   );
 }
