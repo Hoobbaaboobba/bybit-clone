@@ -1,0 +1,58 @@
+import {
+  CandlestickChart,
+  HomeIcon,
+  ClipboardListIcon,
+  Replace,
+  Wallet,
+} from "lucide-react";
+import Link from "next/link";
+
+const buttons = [
+  {
+    Icon: HomeIcon,
+    title: "Главная",
+    href: "/",
+  },
+  {
+    Icon: CandlestickChart,
+    title: "Рынки",
+    href: "/markets",
+  },
+  {
+    Icon: ClipboardListIcon,
+    title: "Деривативы",
+    href: "/derivatives",
+  },
+  {
+    Icon: Replace,
+    title: "Торговать",
+    href: "/trade",
+  },
+  {
+    Icon: Wallet,
+    title: "Активы",
+    href: "wallet",
+  },
+];
+
+const BottomMenu = () => {
+  return (
+    <div className="flex w-full justify-center items-center py-2 px-4 fixed bottom-0 left-0 border-t bg-white z-[100000] impor border-black/10">
+      <ul className="w-full flex justify-between items-center">
+        {buttons.map((button, index) => (
+          <li key={index}>
+            <Link
+              href={button.href}
+              className="flex flex-col justify-center items-center gap-2"
+            >
+              <button.Icon size={26} />
+              <span className="text-xs text-zinc-500">{button.title}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default BottomMenu;
